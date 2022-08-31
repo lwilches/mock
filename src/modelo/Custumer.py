@@ -2,10 +2,11 @@
 from select import select
 from selectors import SelectorKey
 from xmlrpc.client import boolean
-
+from datetime import datetime
 
 class DireccionContacto:
     def __init__(self,  id_persona , id_registro, cod_tipo_dir , direccion ,  cod_pais , cod_dpto ,  cod_cuidad, fec_alta    ) :
+        #fecha_alta = datetime.strptime( fecha_alta, '%Y-%m-%dT%H:%M:%S')
         self.id_persona = id_persona
         self.id_registro  = id_registro
         self.cod_tipo_dir = cod_tipo_dir
@@ -14,6 +15,9 @@ class DireccionContacto:
         self.cod_dpto = cod_dpto
         self.cod_ciudad = cod_cuidad
         self.fecha_alta = fec_alta
+
+        #self.fecha_alta = datetime.strptime( self.fecha_alta, '%Y-%m-%dT%H:%M:%S')  #fecha_alta.strftime('%Y-%m-%dT%H:%M:%S')
+        #self.fecha_alta =  fecha_alta
 
     def __str__(self) -> str:
         return (f'"{self.id_persona}","{self.id_registro}" , "{self.cod_tipo_dir}" ,  "{self.direccion}","{self.cod_pais}",  "{self.cod_dpto}" , "{self.cod_ciudad}" , "{self.fecha_alta}" ')
@@ -25,12 +29,13 @@ class DireccionContacto:
 
 class TelefonoContacto:
     def  __init__(self,  id_persona , id_registro,cod_tipo_telef ,telefono  ,contacto_principal :boolean , fecha_alta ):
+        #fecha_alta = datetime.strptime( fecha_alta, '%Y-%m-%dT%H:%M:%S')
         self.id_persona = id_persona
         self.id_registro = id_registro 
         self.cod_tipo_telef = cod_tipo_telef 
         self.telefono = telefono 
         self.contacto_principal = contacto_principal ,  
-        self.fecha_alta = fecha_alta
+        self.fecha_alta =  fecha_alta
     
     def __str__(self) -> str:
         return (f'"{self.id_persona}","{self.id_registro}" , "{self.cod_tipo_telef}" ,  "{self.telefono}","{self.contacto_principal[0]}",  "{self.fecha_alta}" ')

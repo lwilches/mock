@@ -21,6 +21,10 @@ if __name__ == '__main__':
         servicio.crearArchivoCsvDirecciones(colaTareasSaveTel)
         colaTareasSaveTel.esperarfFinaliceSave()
 
+    elif sys.argv[1] == 'repeat':
+        servicio.crearArchivoCsvCustumersExists('csv_custumers.csv' , 980000)
+
+
     print('fin del trabajo')
 
 

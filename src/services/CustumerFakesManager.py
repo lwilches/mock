@@ -17,10 +17,8 @@ class CustumerFakesManager :
         self.fake = Faker(['it_IT', 'en_US', 'es_CO'])
         
     #genera fake de custumer     
-    def MakeCustumerFake(self):
-
-        id_persona = self.fake.unique.random_int(min=11000, max=999999) 
-        nro_doc   = self.fake.unique.random_int(min=110002000, max=999999999)   
+    def __MakeCustumerFakeInternal(self , id_persona , nro_doc  ):
+ 
         tipo_doc =self.fake.random_int(min=1, max=3)
         nombre_completo =""
         nombre=""
@@ -36,6 +34,13 @@ class CustumerFakesManager :
 
         return  CustumerInfo(id_persona,nro_doc  , tipo_doc, nombre, primer_apellido, segundo_apellido ,  nombre_completo , ciuu      )
 
+    def MakeCustumerFake(self ,id_persona   = 0  , nro_doc = ""  ):
+        if id_persona == 0  :
+            id_persona = self.fake.unique.random_int(min=11000, max=999999) 
+            nro_doc   = self.fake.unique.random_int(min=110002000, max=999999999)   
+         
+        return self.__MakeCustumerFakeInternal(id_persona ,  nro_doc)     
+
     # Genera un  nuevo registro de telefono 
     def MakeCustumerTelefFake(self, id_persona):
         cod_tipo_telef  = self.fake.random_element(elements=(1,2, 8,10,20))
@@ -48,7 +53,7 @@ class CustumerFakesManager :
             telefono = self.fake.ascii_safe_email()
         id_registro = self.fake.uuid4()
         contacto_principal:boolean  = True
-        fecha_alta = self.fake.date()
+        fecha_alta = self.fake.iso8601()
         return  TelefonoContacto(id_persona, id_registro  , cod_tipo_telef , telefono  ,   contacto_principal  , fecha_alta   )
 
     # Genera un  nuevo registro de telefono 
@@ -59,7 +64,7 @@ class CustumerFakesManager :
         cod_pais = 1 
         cod_dpto =  5
         cod_municipio = self.fake.random_element(elements=(5001,5002,5004,5021,5030,5031,5034,5036,5038,5040,5042,5044,5045,5051,5055,5059,5079,5086,5088,5091,5093,5101,5107,5113,5120,5125,5129,5134,5138,5142,5145,5147,5148,5150,5154,5172,5190,5197,5206))
-        fecha_alta = self.fake.date()
+        fecha_alta = self.fake.iso8601()
         id_registro = self.fake.uuid4()
         return DireccionContacto(  id_persona ,id_registro ,  cod_tipo_dir  , direccion ,cod_pais ,  cod_dpto ,  cod_municipio , fecha_alta )
 

@@ -14,7 +14,7 @@
             "program": "${file} ",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": ["direcciones"]
+            "args": ["repeat"]
         }
     ]
 }
