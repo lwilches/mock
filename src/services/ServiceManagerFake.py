@@ -85,6 +85,7 @@ class ServiceManagerFake:
                     try:
                         custumerInfo =  self.makerFakeCustumer.MakeCustumerFake(custumer.id_persona, custumer.nro_doc )
                         print(f'indice:{i} data: {custumerInfo}'  )
+                        json  = self.formatoJson.format(custumerInfo)
                         writer.writerow( custumerInfo.getArray())
                     except Exception as e:
                         print(f' error en fila:{i} data: {custumerInfo} error: {str(e)}'  )
