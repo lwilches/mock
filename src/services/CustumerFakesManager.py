@@ -60,7 +60,7 @@ class CustumerFakesManager :
     def MakeCustumerDirFake(self, id_persona):
 
         cod_tipo_dir   = self.fake.random_element(elements=(1,2))
-        direccion =  self.fake.address()
+        direccion =  "calle false 123" #self.fake.address()""
         cod_pais = 1 
         cod_dpto =  5
         cod_municipio = self.fake.random_element(elements=(5001,5002,5004,5021,5030,5031,5034,5036,5038,5040,5042,5044,5045,5051,5055,5059,5079,5086,5088,5091,5093,5101,5107,5113,5120,5125,5129,5134,5138,5142,5145,5147,5148,5150,5154,5172,5190,5197,5206))

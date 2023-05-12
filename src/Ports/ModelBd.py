@@ -10,6 +10,7 @@ class Custumer(Base) :
     __tablename__ = 'custumers'
     id_persona  = Column(Integer ,  primary_key=True)
     cod_tipo_doc = Column(Integer)
+    id_salesforce = Column(String)
     nro_doc  = Column(String, unique=True)
     #telefonos =  relationship ('Telefonos', cascade='all, delete, delete-orphan')
     #direcciones =  relationship ('Direcciones', cascade='all, delete, delete-orphan')

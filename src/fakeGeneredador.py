@@ -3,6 +3,7 @@ import sys
 from  services.QueueBd import QueueBd 
 from  services.formatoOutputProvider import FormatoOutput , FormatoOutputJson , FormatoOutputJsonDynamo 
 
+import json  
 
 if __name__ == '__main__':
 
@@ -25,7 +26,10 @@ if __name__ == '__main__':
 
     elif sys.argv[1] == 'repeat':
         servicio.crearArchivoCsvCustumersExists('csv_custumers.csv' , 500)
-
+    elif sys.argv[1] == 'to_json':
+        servicio.crearArchivoCsvCustumersExistsFormatJson('csv_custumersjson.csv' , 500)
+    elif sys.argv[1] == 'repeat_dir':
+       servicio.crearArchivoCsvDireccionesCustumersExists('csv_custumers_direcciones1.csv')
 
     print('fin del trabajo')
 

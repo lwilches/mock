@@ -4,17 +4,14 @@
     // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
-    
-        
         {
             "name": "Python: archivo actual",
             "type": "python",
             "request": "launch",
-            "program": "${file} ",
+            "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": ["repeat"]
+            "args": [ "repeat_dir" ]
         }
     ]
 }

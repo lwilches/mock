@@ -1,7 +1,9 @@
 import threading
 import queue
+from typing_extensions import Self
 from Ports.ModelBd import Custumer , Direcciones , Telefonos
 from Ports.connectDb import Session, Base, Engine
+from asyncio import wait , run , sleep 
 
 
 # clase q procesa cola de tareas de grabacion / actualziacion  bd 
@@ -25,6 +27,13 @@ class QueueBd :
                 self.queueSaveRegistro.task_done()
 
         threading.Thread(target=workerSalvarBdRegistros, daemon=True).start()
+
+    async def print_num(self, n):
+        await sleep(n)
+        print(n)
+
+    def ordernar ():
+        resultado = [Self.print_num(n) for n in range(1,5) ]
 
 
     def registerWorker(self, metodo):
